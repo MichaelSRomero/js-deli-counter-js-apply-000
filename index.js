@@ -1,8 +1,18 @@
-function takeANumber(line, newPerson) {
+/*function takeANumber(line, newPerson) {
   var newNumber = line.length + 1;
+  
   line.push(newPerson);
   
   return `Welcome, ${newPerson}. You are number ${newNumber} in line.`;
+} */
+var counter = 0;
+
+function takeANumber(line) {
+  counter++;
+  
+  line.push(counter);
+  
+  return `Welcome, you are number ${counter} in line`;
 }
 
 function nowServing(line) {
@@ -21,11 +31,12 @@ function currentLine(line) {
   
   for (var i = 0; i < line.length; i++) {
     var person = line[i];
+    var position = i + 1;
     
-    if (i + 1 === line.length) {
-      message += `${i + 1}. ${person}`; // '1. Ada'
+    if (position === line.length) {
+      message += `${position}. ${person}`; // '1. Ada'
     } else {
-      message += `${i + 1}. ${person}, `; // '2. Grace, '
+      message += `${position}. ${person}, `; // '2. Grace, '
     }
   }
   
